@@ -18,6 +18,10 @@ const Navigation = ({ locale, locales }) => {
     en: 'Shop',
     nl: 'Winkel',
   }
+  const resolveGames = {
+    en: 'Games',
+    nl: 'Spel',
+  }
   let homeurl = "/";
   if (locale != 'default') {
     homeurl = "/" + locale;
@@ -42,6 +46,9 @@ const Navigation = ({ locale, locales }) => {
           <div className={styles.navlinks}>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/movies`} className={styles.movie}>{resolveMovies[locale]}</a>
+            </div>
+            <div className={styles.navlink}>
+              <a href={`${defaultLocale}pages/games`} className={styles.game}>{resolveGames[locale]}</a>
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/people`} className={styles.personality}>{resolvePeople[locale]}</a>
