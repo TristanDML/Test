@@ -2,12 +2,13 @@
 
 .game {
   .mainpicture {
-    width: 100%;
+    width: 33%;
     height: 500px;
     background-size: cover;
     background-position: center;
     box-shadow: inset 0 0 0px 10px #000;
     margin-bottom: 40px;
+    margin-left: 300px;
   }
 
   .short {
@@ -42,7 +43,8 @@
 
   .title {}
 
-  .summary {}
+  .Summary {
+  }
 
   .synopsis {}
 

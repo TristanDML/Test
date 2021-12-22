@@ -24,7 +24,8 @@ import EmailOptin from './EmailOptin'
 import TwoCol from './TwoCol'
 import Title from './Title'
 import TopMovies from './TopMovies'
-import Game from './Games'
+import Game from './Game'
+import GameList from './GameList'
 
 const Components = {
   'teaser': Teaser,
@@ -53,7 +54,8 @@ const Components = {
   'twocol':TwoCol,
   'title':Title,
   'topmovies':TopMovies,
-  'game' :Game
+  'game' :Game,
+  'gamelist':GameList,
 }
 
 

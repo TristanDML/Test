@@ -13,15 +13,6 @@ const GameList = ({ data, level, locale }) => {
   }
   const [sortby, setSortby] = useState();
 
-  function updateSortby(sortby){
-    setSortby(sortby);
-    getAllItems('game', locale, sortby).then(
-      function (result) {
-        setItems(result.data.stories);
-      });
-  }
-  
-
   const [items, setItems] = useState([]);
   getAllItems('game', locale, sortby).then(
     function (result) {
@@ -30,21 +21,8 @@ const GameList = ({ data, level, locale }) => {
 
   return (
     <div className={styles.list}>
-      <div className={styles.orderbypicker}>
-        <div className={styles.orderbytitle}>
-          Order by
-        </div>
-        <div className={styles.orderbyoptions} >
-          <div className={styles.orderbyoption} onClick={() => updateSortby("first_published_at:desc")}>
-            Date
-          </div>
-          <div className={styles.orderbyoption} onClick={() => updateSortby("name:asc")}>
-            Title
-          </div>
-        </div>
-      </div>
       <div>
-        {items && items.length > 0 && <SmallCardList items={items} type="game"></SmallCardList>}
+        {items && items.length > 0 && <SmallCardList items={items} type="movie"></SmallCardList>}
       </div>
     </div>
 
