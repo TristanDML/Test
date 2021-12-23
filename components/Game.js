@@ -117,11 +117,8 @@ const Game = ({ data, level }) => {
         </div>
         </div>
         <div className={styles.platforms}>
-            {platforms.map((item, index) => (
-              <div className={styles.platform}>
                 {platforms && platforms.length > 0 && <BigCardList items={platforms} title={resolveCharacters[locale]} type='platform'></BigCardList>}
                   </div>
-            ))} </div>
       </main>
     </SbEditable>
   )
