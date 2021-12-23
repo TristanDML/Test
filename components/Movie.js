@@ -102,8 +102,8 @@ const Movie = ({ data, level }) => {
           </div>
           <div className={styles.peoplesegment}>
             <div className={styles.content}>
-              {directors && directors.length > 0 && <RelatedItemGallerySmall items={directors} title={resolveDirectors[locale]} type="personality"></RelatedItemGallerySmall>}
-              {writers && writers.length > 0 && <RelatedItemGallerySmall items={writers} title={resolveWriters[locale]} type="personality"></RelatedItemGallerySmall>}
+              {/* {directors && directors.length > 0 && <RelatedItemGallerySmall items={directors} title={resolveDirectors[locale]} type="personality"></RelatedItemGallerySmall>} */}
+              {/* {writers && writers.length > 0 && <RelatedItemGallerySmall items={writers} title={resolveWriters[locale]} type="personality"></RelatedItemGallerySmall>} */}
               {stars && stars.length > 0 && <RelatedItemGallerySmall items={stars} title={resolveStars[locale]} type="personality"></RelatedItemGallerySmall>}
             </div>
 

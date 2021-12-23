@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
-import styles from "../styles/Game.module.scss"
+import styles from "../styles/Character.module.scss"
 import { getData } from "../utils/storyblok"
 import RelatedItemGallerySmall from "./RelatedItemGallerySmall"
 import RelatedItemGallery from "./RelatedItemGallery"
@@ -33,13 +33,9 @@ import { resolveHref } from "next/dist/next-server/lib/router/router"
 //   en: 'News',
 //   nl: 'Nieuws',
 // }
-const resolveCharacters = {
-  en: 'Characters',
-  nl: 'Personage',
-}
 
 
-const Game = ({ data, level }) => {
+const Character = ({ data, level }) => {
   var locale = 'en';
   //enriching data
   if (level === 'data') {
@@ -57,14 +53,14 @@ const Game = ({ data, level }) => {
     // var studios = data.rels.filter(obj => {
     //   return content.studios.includes(obj.uuid);
     // })
-    if (content.character){
-      var characters=data.rels.filter(obj => {
-        return content.character.includes(obj.uuid);
+    var links = data.rels.filter(obj => {
+      return content.links.includes(obj.uuid);
     })
-
+    var pictures = content.mainpicture;
   } else {
     var content = data;
   }
+
 
   // const [products, setProducts] = useState([]);
   // getData(data.story.uuid, locale, content.preview = false, 'product', 'game').then(
@@ -84,33 +80,29 @@ const Game = ({ data, level }) => {
     <SbEditable content={content} key={content._uid}>
       <main>
         {/* <div className={[styles.movie, styles.test].join(' ')}> */}
-        <div className={styles.game}>
+        <div className={styles.character}>
           <h1 className={styles.title}>
             {content.title}
           </h1>
           <div className={styles.Summary}>
             {render(content.Summary)}
           </div>
+          <div className={styles.age}>
+          Age of the character: {render(content.age)} 
+          </div>
+          <div className={styles.playable}> Is it playable? {render(content.playable)}
+          </div>
+          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
+          </div>
+          <div className={styles.imagegallery} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
+          </div>
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}
-           <div className={styles.navlink}>
-              <a href={"styles.links"} >LINK</a>
-            </div> 
-          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
-          </div>
-          <div className={styles.immagegalery}>
-          <div className={styles.picture} style={{ backgroundImage: `url("${content.pictures.filename}")` }}>
-          </div>
-        </div>
-        <div className={styles.game}>
-        {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
-        </div>
         </div>
       </main>
     </SbEditable>
   )
 }
-}
 
-export default Game
+export default Character

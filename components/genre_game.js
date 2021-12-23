@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
-import styles from "../styles/Game.module.scss"
+import styles from "../styles/Genre_Game.module.scss"
 import { getData } from "../utils/storyblok"
 import RelatedItemGallerySmall from "./RelatedItemGallerySmall"
 import RelatedItemGallery from "./RelatedItemGallery"
@@ -33,13 +33,12 @@ import { resolveHref } from "next/dist/next-server/lib/router/router"
 //   en: 'News',
 //   nl: 'Nieuws',
 // }
-const resolveCharacters = {
-  en: 'Characters',
-  nl: 'Personage',
+const resolveGames = {
+  en: 'Games',
+  nl: 'Spel',
 }
 
-
-const Game = ({ data, level }) => {
+const Genre_Game = ({ data, level }) => {
   var locale = 'en';
   //enriching data
   if (level === 'data') {
@@ -57,14 +56,16 @@ const Game = ({ data, level }) => {
     // var studios = data.rels.filter(obj => {
     //   return content.studios.includes(obj.uuid);
     // })
-    if (content.character){
-      var characters=data.rels.filter(obj => {
-        return content.character.includes(obj.uuid);
+    
+    var pictures = content.mainpicture;
+    if (content.game){
+      var games=data.rels.filter(obj => {
+        return content.game.includes(obj.uuid);
     })
+  } }else {
+    var content = data;}
+  
 
-  } else {
-    var content = data;
-  }
 
   // const [products, setProducts] = useState([]);
   // getData(data.story.uuid, locale, content.preview = false, 'product', 'game').then(
@@ -84,33 +85,23 @@ const Game = ({ data, level }) => {
     <SbEditable content={content} key={content._uid}>
       <main>
         {/* <div className={[styles.movie, styles.test].join(' ')}> */}
-        <div className={styles.game}>
+        <div className={styles.genre_game}>
           <h1 className={styles.title}>
             {content.title}
           </h1>
-          <div className={styles.Summary}>
-            {render(content.Summary)}
+          <div className={styles.description}>
+            {render(content.description)}
           </div>
+          <div className={styles.genre_game}>
+        {games && games.length > 0 && <SmallCardList items={games} title={resolveGames[locale]} type='game'></SmallCardList>}
+        </div>
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}
-           <div className={styles.navlink}>
-              <a href={"styles.links"} >LINK</a>
-            </div> 
-          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
-          </div>
-          <div className={styles.immagegalery}>
-          <div className={styles.picture} style={{ backgroundImage: `url("${content.pictures.filename}")` }}>
-          </div>
-        </div>
-        <div className={styles.game}>
-        {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
-        </div>
         </div>
       </main>
     </SbEditable>
   )
 }
-}
 
-export default Game
+export default Genre_Game

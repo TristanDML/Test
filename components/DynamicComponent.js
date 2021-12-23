@@ -26,6 +26,10 @@ import Title from './Title'
 import TopMovies from './TopMovies'
 import Game from './Game'
 import GameList from './GameList'
+import Character from './Character'
+import CharacterList from './CharacterList'
+import Genre_Game from './genre_game'
+import GenreList from './GenreList'
 
 const Components = {
   'teaser': Teaser,
@@ -56,6 +60,10 @@ const Components = {
   'topmovies':TopMovies,
   'game' :Game,
   'gamelist':GameList,
+  'character':Character,
+  'characterlist':CharacterList,
+  'genre_game':Genre_Game,
+  'genrelist':GenreList,
 }
 
 
