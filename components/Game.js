@@ -8,6 +8,7 @@ import RelatedItemGallery from "./RelatedItemGallery"
 import InPageSlideshow from "./InPageSlideshow"
 import SmallCardList from "./SmallCardList"
 import { resolveHref } from "next/dist/next-server/lib/router/router"
+import BigCardList from "./BigCardList"
 
 // const resolveDirectors = {
 //   en: 'Directors',
@@ -45,6 +46,9 @@ const Game = ({ data, level }) => {
   if (level === 'data') {
     locale = data.story.lang;
     var content = data.story.content;
+    var platforms = data.rels.filter(obj => {
+      return content.platform.includes(obj.uuid);
+    });
     // var directors = data.rels.filter(obj => {
     //   return content.directors.includes(obj.uuid);
     // });
@@ -112,6 +116,12 @@ const Game = ({ data, level }) => {
         {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
         </div>
         </div>
+        <div className={styles.platforms}>
+            {platforms.map((item, index) => (
+              <div className={styles.platform}>
+                {platforms && platforms.length > 0 && <BigCardList items={platforms} title={resolveCharacters[locale]} type='platform'></BigCardList>}
+                  </div>
+            ))} </div>
       </main>
     </SbEditable>
   )
