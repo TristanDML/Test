@@ -30,19 +30,6 @@ const genregenre = ({ data, level, locale }) => {
 
   return (
     <div className={styles.list}>
-      <div className={styles.orderbypicker}>
-        <div className={styles.orderbytitle}>
-          Order by
-        </div> 
-        <div className={styles.orderbyoptions} >
-          <div className={styles.orderbyoption} onClick={() => updateSortby("first_published_at:desc")}>
-            Date
-          </div>
-          <div className={styles.orderbyoption} onClick={() => updateSortby("name:asc")}>
-            Title
-          </div>
-        </div>
-       </div>
       <div>
         {items && items.length > 0 && <SmallCardList items={items} type="genre_game"></SmallCardList>}
       </div>
