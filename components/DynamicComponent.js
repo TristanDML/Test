@@ -30,6 +30,7 @@ import Character from './Character'
 import CharacterList from './CharacterList'
 import Genre_Game from './genre_game'
 import genregenre from './Genregenre'
+import Platform from './Platform'
 
 const Components = {
   'teaser': Teaser,
@@ -64,6 +65,7 @@ const Components = {
   'characterlist':CharacterList,
   'genre_game':Genre_Game,
   'genregenre': genregenre,
+  'platform': Platform,
 }
 
 
