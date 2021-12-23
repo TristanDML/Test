@@ -112,13 +112,14 @@ const Game = ({ data, level }) => {
           <div className={styles.picture} style={{ backgroundImage: `url("${content.pictures.filename}")` }}>
           </div>
         </div> */}
-        <div className={styles.game}>
-        {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
-        </div>
-        </div>
+         </div>
         <div className={styles.platforms}>
                 {platforms && platforms.length > 0 && <BigCardList items={platforms} title={resolveCharacters[locale]} type='platform'></BigCardList>}
                   </div>
+        <div className={styles.game}>
+        {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
+        </div>
+       
       </main>
     </SbEditable>
   )
