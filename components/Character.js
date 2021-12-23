@@ -48,6 +48,10 @@ const Character = ({ data, level }) => {
     var roles = data.rels.filter(obj => {
       return content.role.includes(obj.uuid);
     });
+    // var genders =data.story.content.gender;
+    var genders=data.rels.filter(obj => {
+      return content.gender.includes(obj.uuid);
+      });
     var relatedcharacters=data.rels.filter(obj => {
     return content.character.includes(obj.uuid);
     })
@@ -71,7 +75,6 @@ const Character = ({ data, level }) => {
     var pictures = content.mainpicture;
   } else {
     var content = data;
-    
   }
   // const [products, setProducts] = useState([]);
   // getData(data.story.uuid, locale, content.preview = false, 'product', 'game').then(
@@ -95,6 +98,12 @@ const Character = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.first_name} {content.last_name}
           </h1>
+          <div className={styles.genders}>
+            {genders.map((item, index) => (
+              <div className={styles.gender}> 
+                <img src={item.content.logo.filename}></img>
+                  </div>
+            ))} 
           <div className={styles.roles}>
             {roles.map((item, index) => (
               <div className={styles.role}> 
@@ -108,6 +117,7 @@ const Character = ({ data, level }) => {
                   </div>
             ))} </div>
           </div>
+          
           <div className={styles.age}>  
           Age of the character: {render(content.age)} 
           </div>
@@ -121,7 +131,7 @@ const Character = ({ data, level }) => {
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}
-        </div>
+        </div></div>
       </main>
     </SbEditable>
   )
