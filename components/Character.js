@@ -33,6 +33,10 @@ import { resolveHref } from "next/dist/next-server/lib/router/router"
 //   en: 'News',
 //   nl: 'Nieuws',
 // }
+const resolveCharacters = {
+  en: 'Characters',
+  nl: 'Personage',
+}
 
 
 const Character = ({ data, level }) => {
@@ -41,6 +45,15 @@ const Character = ({ data, level }) => {
   if (level === 'data') {
     locale = data.story.lang;
     var content = data.story.content;
+    var roles = data.rels.filter(obj => {
+      return content.role.includes(obj.uuid);
+    });
+    var relatedcharacters=data.rels.filter(obj => {
+    return content.character.includes(obj.uuid);
+    })
+    var playables = data.rels.filter(obj => {
+      return content.playable.includes(obj.uuid);
+    });
     // var directors = data.rels.filter(obj => {
     //   return content.directors.includes(obj.uuid);
     // });
@@ -53,15 +66,13 @@ const Character = ({ data, level }) => {
     // var studios = data.rels.filter(obj => {
     //   return content.studios.includes(obj.uuid);
     // })
-    var links = data.rels.filter(obj => {
-      return content.links.includes(obj.uuid);
-    })
+
+
     var pictures = content.mainpicture;
   } else {
     var content = data;
+    
   }
-
-
   // const [products, setProducts] = useState([]);
   // getData(data.story.uuid, locale, content.preview = false, 'product', 'game').then(
   //   function (result) {
@@ -82,20 +93,31 @@ const Character = ({ data, level }) => {
         {/* <div className={[styles.movie, styles.test].join(' ')}> */}
         <div className={styles.character}>
           <h1 className={styles.title}>
-            {content.title}
+            {content.first_name} {content.last_name}
           </h1>
-          <div className={styles.Summary}>
-            {render(content.Summary)}
+          <div className={styles.roles}>
+            {roles.map((item, index) => (
+              <div className={styles.role}> 
+                <img src={item.content.logo.filename}></img>
+                  </div>
+            ))} 
+            <div className={styles.roles}>
+            {roles.map((item, index) => (
+              <div className={styles.rolesname}> 
+                {item.content.title}
+                  </div>
+            ))} </div>
           </div>
-          <div className={styles.age}>
+          <div className={styles.age}>  
           Age of the character: {render(content.age)} 
-          </div>
-          <div className={styles.playable}> Is it playable? {render(content.playable)}
           </div>
           <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
           </div>
           <div className={styles.imagegallery} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
           </div>
+          <div className={styles.relatedcharacters}> Friends, loves and ennemies
+        {relatedcharacters && relatedcharacters.length > 0 && <SmallCardList items={relatedcharacters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
+        </div>
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}

@@ -42,11 +42,34 @@
     }
     .content {}
   }
+  .relatedcharacters{
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 0px;
 
+  }
   .title {}
   .links{
 
   }
+  .role {
+    width: 100px;
+    height: 0px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0px 10px #000;
+    margin-bottom: 7%;
+    margin-left: 100%;
+  } 
+  .rolesname {
+    width: 100px;
+    height: 0px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0px 10px #000;
+    margin-bottom: 0px;
+    margin-left: 88%;
+  } 
   .Summary {
   }
 
