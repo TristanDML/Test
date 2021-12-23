@@ -18,6 +18,10 @@ const Navigation = ({ locale, locales }) => {
     en: 'Shop',
     nl: 'Winkel',
   }
+  const resolveGenre = {
+    en: 'Genre',
+    nl: 'Genre',
+  }
   const resolveGames = {
     en: 'Games',
     nl: 'Spel',
@@ -50,6 +54,9 @@ const Navigation = ({ locale, locales }) => {
           <div className={styles.navlinks}>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/movies`} className={styles.movie}>{resolveMovies[locale]}</a>
+            </div>
+            <div className={styles.navlink}>
+              <a href={`${defaultLocale}pages/genre_game`} className={styles.genre_game}>{resolveGenre[locale]}</a>
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/games`} className={styles.game}>{resolveGames[locale]}</a>

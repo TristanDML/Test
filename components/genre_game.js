@@ -92,6 +92,8 @@ const Genre_Game = ({ data, level }) => {
           <div className={styles.description}>
             {render(content.description)}
           </div>
+          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
+          </div>
           <div className={styles.genre_game}>
         {games && games.length > 0 && <SmallCardList items={games} title={resolveGames[locale]} type='game'></SmallCardList>}
         </div>
