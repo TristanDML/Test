@@ -70,15 +70,18 @@
     .genre {}
   }
 
-  .picture {
-        width: 25%;
-        height: 250PX;
-        background-size: cover;
-        background-position: center;
-        box-shadow: inset 0 0 0px 5px #000;
-        margin-bottom: 40px;
-        margin-left: 0px;
-    }
+  // .pictures {
+  //       width: 25%;
+  //       height: 250PX;
+  //       background-size: cover;
+  //       background-position: center;
+  //       box-shadow: inset 0 0 0px 5px #000;
+  //       margin-bottom: 40px;
+  //       margin-left: 0px;
+  //   }
+  .pictures {
+    .picture {}
+  }
   .trailers {
     .trailer {}
   }

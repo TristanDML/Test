@@ -61,11 +61,13 @@ const Game = ({ data, level }) => {
       var characters=data.rels.filter(obj => {
         return content.character.includes(obj.uuid);
     })
+    
 
   } else {
     var content = data;
-  }
 
+  }
+  var pictures = content.pictures;
   // const [products, setProducts] = useState([]);
   // getData(data.story.uuid, locale, content.preview = false, 'product', 'game').then(
   //   function (result) {
@@ -88,6 +90,9 @@ const Game = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
+          <div className={styles.imagegallery}>
+            <InPageSlideshow pictures={pictures}></InPageSlideshow>
+          </div>  
           <div className={styles.Summary}>
             {render(content.Summary)}
           </div>
@@ -99,10 +104,10 @@ const Game = ({ data, level }) => {
             </div> 
           <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
           </div>
-          <div className={styles.immagegalery}>
+          {/* <div className={styles.immagegalery}>
           <div className={styles.picture} style={{ backgroundImage: `url("${content.pictures.filename}")` }}>
           </div>
-        </div>
+        </div> */}
         <div className={styles.game}>
         {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
         </div>
