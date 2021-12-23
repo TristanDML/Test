@@ -33,6 +33,7 @@ import genregenre from './Genregenre'
 import Platform from './Platform'
 import Role from './Role'
 import Gender from './Gender'
+import Company from './Company'
 
 const Components = {
   'teaser': Teaser,
@@ -70,6 +71,7 @@ const Components = {
   'platform': Platform,
   'role':Role,
   'gender': Gender,
+  'Company':Company,
 }
 
 
