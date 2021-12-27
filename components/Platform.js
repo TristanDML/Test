@@ -40,14 +40,18 @@ const resolveCompanies = {
 }
 
 const Platform = ({ data, level }) => {
+  var content = data;
   var locale = 'en';
   //enriching data
   if (level === 'data') {
     locale = data.story.lang;
-    var content = data.story.content;
+    var content = data.story.content; 
     var company = data.rels.filter(obj => {
       return content.companies.includes(obj.uuid);
     });
+    
+
+
     // var directors = data.rels.filter(obj => {
     //   return content.directors.includes(obj.uuid);
     // });
@@ -63,10 +67,12 @@ const Platform = ({ data, level }) => {
     
 
   } else {
-    var content = data;
-
   }
-
+  const [games_good, setGames] = useState([]);
+  getData(data.story.uuid, locale, content.preview = false, 'game', 'platform').then(
+    function (result) {
+      setGames(result.data.stories);
+    });
   // const [products, setProducts] = useState([]);
   // getData(data.story.uuid, locale, content.preview = false, 'product', 'game').then(
   //   function (result) {
@@ -105,6 +111,7 @@ const Platform = ({ data, level }) => {
         <div className={styles.company}>
                 {company && company.length > 0 && <BigCardList items={company} title={resolveCompanies[locale]} type='company'></BigCardList>}
                   </div>
+                  {games_good && games_good.length > 0 && <SmallCardList items={games_good} title='Games'type="game"></SmallCardList>}
         </div>
       </main>
     </SbEditable>
