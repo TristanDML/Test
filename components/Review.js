@@ -68,7 +68,7 @@ const Review = ({ data, level }) => {
 
   }
   var game=data.rels.filter(obj => {
-    return content.game.includes(obj.uuid);
+    return content.game_review.includes(obj.uuid);
 })
   var date = content.date;
   // const [products, setProducts] = useState([]);

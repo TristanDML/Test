@@ -93,10 +93,10 @@ const Game = ({ data, level }) => {
   //     setNewsitems(result.data.stories);
   //   });
 
-  const [reviews, setPlatforms] = useState([]);
-  getData(data.story.uuid, locale, content.preview = false, 'review', 'game').then(
+  const [reviews, setReviews] = useState([]);
+  getData(data.story.uuid, locale, content.preview = false, 'review', 'game_review').then(
     function (result) {
-      setPlatforms(result.data.stories);
+      setReviews(result.data.stories);
     });
   //returning the HTML
   return (

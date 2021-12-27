@@ -33,6 +33,9 @@ export async function getData(uuid, locale, preview, components, itemtype, sortb
       case "studios":
         sbParams.filter_query.studios = { any_in_array: uuid };
         break;
+      case "game_review":
+        sbParams.filter_query.game_review = { any_in_array: uuid };
+        break;
       case "movies":
         sbParams.filter_query.movies = { any_in_array: uuid };
         break;
@@ -53,10 +56,6 @@ export async function getData(uuid, locale, preview, components, itemtype, sortb
         break;
       case "character":
         sbParams.filter_query.character = { any_in_array: uuid };
-        break;
-    
-    case "review":
-        sbParams.filter_query.review = { any_in_array: uuid };
         break;
   }
 }
