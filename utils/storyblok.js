@@ -54,8 +54,12 @@ export async function getData(uuid, locale, preview, components, itemtype, sortb
       case "character":
         sbParams.filter_query.character = { any_in_array: uuid };
         break;
-    }
+    
+    case "review":
+        sbParams.filter_query.review = { any_in_array: uuid };
+        break;
   }
+}
 
   if (sortby) {
     sbParams.sort_by = sort_by;
