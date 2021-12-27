@@ -79,6 +79,7 @@ const Game = ({ data, level }) => {
 
   }
   var pictures = content.pictures;
+  var date = content.releasedate;
   // const [products, setProducts] = useState([]);
   // getData(data.story.uuid, locale, content.preview = false, 'product', 'game').then(
   //   function (result) {
@@ -101,6 +102,9 @@ const Game = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
+          <div  className={styles.date}  >
+        Original release date = {date}
+          </div>
           <div className={styles.imagegallery}>
             <InPageSlideshow pictures={pictures}></InPageSlideshow>
           </div>  
