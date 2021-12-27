@@ -100,14 +100,17 @@ const Character = ({ data, level }) => {
         {/* <div className={[styles.movie, styles.test].join(' ')}> */}
         <div className={styles.character}>
           <h1 className={styles.title}>
-            {content.first_name} {content.last_name}
+            {content.title}
           </h1>
           <div className={styles.genders}>
             {genders.map((item, index) => (
+              <div className={styles.gendersname}> 
+              {item.content.title}
               <div className={styles.gender}> 
                 <img src={item.content.logo.filename}></img>
-                  </div>
-            ))} 
+                
+                        </div>
+                  </div> ))} 
           <div className={styles.roles}>
             {roles.map((item, index) => (
               <div className={styles.role}> 
