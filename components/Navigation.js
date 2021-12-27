@@ -31,8 +31,12 @@ const Navigation = ({ locale, locales }) => {
     nl: 'Person',
   }
   const resolvePlatform = {
-    en: 'Platform',
-    nl: 'Platform',
+    en: 'Platforms',
+    nl: 'Platforms',
+  }
+  const resolveCompany = {
+    en: 'Companies',
+    nl: 'Bedrijven',
   }
   let homeurl = "/";
   if (locale != 'default') {
@@ -70,6 +74,9 @@ const Navigation = ({ locale, locales }) => {
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/platforms`} className={styles.platform}>{resolvePlatform[locale]}</a>
+            </div>
+            <div className={styles.navlink}>
+              <a href={`${defaultLocale}pages/companies`} className={styles.company}>{resolveCompany[locale]}</a>
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/people`} className={styles.personality}>{resolvePeople[locale]}</a>

@@ -38,7 +38,10 @@ const resolveCharacters = {
   en: 'Characters',
   nl: 'Personage',
 }
-
+const resolvePlatform ={
+  en: 'Platform',
+  nl: 'Platform',
+}
 
 const Game = ({ data, level }) => {
   var locale = 'en';
@@ -49,6 +52,10 @@ const Game = ({ data, level }) => {
     var platforms = data.rels.filter(obj => {
       return content.platform.includes(obj.uuid);
     });
+    if (content.publisher){
+      var publisher = data.rels.filter(obj => {
+      return content.publisher.includes(obj.uuid);
+    })};
     // var directors = data.rels.filter(obj => {
     //   return content.directors.includes(obj.uuid);
     // });
@@ -114,7 +121,10 @@ const Game = ({ data, level }) => {
         </div> */}
          </div>
         <div className={styles.platforms}>
-                {platforms && platforms.length > 0 && <BigCardList items={platforms} title={resolveCharacters[locale]} type='platform'></BigCardList>}
+                {platforms && platforms.length > 0 && <BigCardList items={platforms} title={resolvePlatform[locale]} type='platform'></BigCardList>}
+                  </div>
+          <div className={styles.publisher}>
+          {publisher && publisher.length > 0 && <BigCardList items={publisher} title={resolvePlatform[locale]} type='Company'></BigCardList>}
                   </div>
         <div className={styles.game}>
         {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
