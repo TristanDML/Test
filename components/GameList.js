@@ -3,7 +3,7 @@ import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/GameList.module.scss"
 import { getAllItems } from "../utils/storyblok"
-import SmallCardList from "./SmallCardList"
+import SmallCardList from "./SmallCardList" 
 
 const GameList = ({ data, level, locale }) => {
   if (level === 'data') {
@@ -42,7 +42,7 @@ const GameList = ({ data, level, locale }) => {
         </div>
       </div>
       <div>
-        {items && items.length > 0 && <SmallCardList items={items} type="movie"></SmallCardList>}
+        {items && items.length > 0 && <SmallCardList items={items} type="game"></SmallCardList>}
       </div>
     </div>
 
