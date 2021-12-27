@@ -5,6 +5,7 @@ const Navigation = ({ locale, locales }) => {
   const resolveMovies = {
     en: 'Movies',
     nl: 'Films',
+    fr: 'Films',
   }
   const resolvePeople = {
     en: 'People',
@@ -19,24 +20,29 @@ const Navigation = ({ locale, locales }) => {
     nl: 'Winkel',
   }
   const resolveGenre = {
-    en: 'Genre',
-    nl: 'Genre',
+    en: 'Genres',
+    nl: 'Genres',
+    fr: 'Genres',
   }
   const resolveGames = {
     en: 'Games',
-    nl: 'Spel',
+    nl: 'Spellen',
+    fr: 'Jeux',
   }
   const resolveCharacters = {
     en: 'Characters',
-    nl: 'Person',
+    nl: 'Personages',
+    fr: 'Personnages',
   }
   const resolvePlatform = {
     en: 'Platforms',
     nl: 'Platforms',
+    fr: 'Plateformes',
   }
   const resolveCompany = {
     en: 'Companies',
     nl: 'Bedrijven',
+    fr: 'Entreprises',
   }
   let homeurl = "/";
   if (locale != 'default') {

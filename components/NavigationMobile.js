@@ -16,8 +16,9 @@ const NavigationMobile = ({ locale, locales }) => {
     nl: 'Nieuws',
   }
   const resolveGenre = {
-    en: 'Genre',
-    nl: 'Genre',
+    en: 'Genres',
+    nl: 'Genres',
+    fr: 'Genres',
   }
   const resolveMerchandise = {
     en: 'Shop',
@@ -25,19 +26,23 @@ const NavigationMobile = ({ locale, locales }) => {
   }
   const resolveGames = {
     en: 'Games',
-    nl: 'Spel',
+    nl: 'Spellen',
+    fr: 'Jeux',
   }
   const resolveCharacters = {
     en: 'Characters',
-    nl: 'Person',
+    nl: 'Personages',
+    fr: 'Personnages',
   }
   const resolvePlatform = {
     en: 'Platforms',
     nl: 'Platforms',
+    fr: 'Plateformes',
   }
   const resolveCompany = {
     en: 'Companies',
     nl: 'Bedrijven',
+    fr: 'Entreprises'
   }
   function togglenav() {
     setNavstate(result.data.stories);

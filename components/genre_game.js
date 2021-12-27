@@ -35,7 +35,8 @@ import { resolveHref } from "next/dist/next-server/lib/router/router"
 // }
 const resolveGames = {
   en: 'Games',
-  nl: 'Spel',
+  nl: 'Spellen',
+  fr: 'Jeux',
 }
 
 const Genre_Game = ({ data, level }) => {

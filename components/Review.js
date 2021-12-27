@@ -37,10 +37,12 @@ import BigCardList from "./BigCardList"
 const resolveCharacters = {
   en: 'Characters',
   nl: 'Personage',
+  fr: 'Personnages',
 }
 const resolvePlatform ={
   en: 'Platform',
   nl: 'Platform',
+  fr: 'Plateformes',
 }
 
 const Review = ({ data, level }) => {

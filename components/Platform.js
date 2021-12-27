@@ -37,8 +37,13 @@ import BigCardList from "./BigCardList"
 const resolveCompanies = {
   en : 'Company',
   nl: 'Bedrijf',
+  fr: 'Entreprise'
 }
-
+const resolveGames = {
+  en: 'Games',
+  nl: 'Spellen',
+  fr: 'Jeux'
+}
 const Platform = ({ data, level }) => {
   var content = data;
   var locale = 'en';
@@ -111,7 +116,7 @@ const Platform = ({ data, level }) => {
         <div className={styles.company}>
                 {company && company.length > 0 && <BigCardList items={company} title={resolveCompanies[locale]} type='company'></BigCardList>}
                   </div>
-                  {games_good && games_good.length > 0 && <SmallCardList items={games_good} title='Games'type="game"></SmallCardList>}
+                  {games_good && games_good.length > 0 && <SmallCardList items={games_good} title={resolveGames[locale]} type="game"></SmallCardList>}
         </div>
       </main>
     </SbEditable>

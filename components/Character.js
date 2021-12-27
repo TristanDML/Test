@@ -35,14 +35,25 @@ import { resolveHref } from "next/dist/next-server/lib/router/router"
 // }
 const resolveCharacters = {
   en: 'Characters',
-  nl: 'Personage',
+  nl: 'Personages',
+  fr: 'Personnages'
 }
-
+const resolveEnnemies = {
+  en: 'Friends, family and ennemies',
+  nl: 'Vrienden, gezin en vijanden',
+  fr: 'Amis, famille et ennemis',
+}
+const resolveGames = {
+  en: 'Games',
+  nl: 'Spellen',
+  fr: 'Jeux',
+}
 
 const Character = ({ data, level }) => {
   var locale = 'en';
   //enriching data
   if (level === 'data') {
+
     locale = data.story.lang;
     var content = data.story.content;
     var roles = data.rels.filter(obj => {
@@ -132,14 +143,14 @@ const Character = ({ data, level }) => {
           </div>
           <div className={styles.imagegallery} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
           </div>
-          <div className={styles.relatedcharacters}> Friends, loves and ennemies
-        {relatedcharacters && relatedcharacters.length > 0 && <SmallCardList items={relatedcharacters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
+          <div className={styles.relatedcharacters}> 
+        {relatedcharacters && relatedcharacters.length > 0 && <SmallCardList items={relatedcharacters} title={resolveEnnemies[locale]} type='character'></SmallCardList>}
         </div>
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}
         </div>
-        {games_good && games_good.length > 0 && <SmallCardList items={games_good} title='Games'type="game"></SmallCardList>}</div>
+        {games_good && games_good.length > 0 && <SmallCardList items={games_good} title={resolveGames[locale]} type="game"></SmallCardList>}</div>
       </main>
     </SbEditable>
   )

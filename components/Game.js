@@ -36,11 +36,23 @@ import BigCardList from "./BigCardList"
 // }
 const resolveCharacters = {
   en: 'Characters',
-  nl: 'Personage',
+  nl: 'Personages',
+  fr: 'Personnages',
 }
 const resolvePlatform ={
-  en: 'Platform',
-  nl: 'Platform',
+  en: 'Platforms',
+  nl: 'Platforms',
+  fr: 'Plateformes',
+}
+const resolvePublisher ={
+  en: 'Publishers',
+  nl: 'Uitgevers',
+  fr: 'Editeur'
+}
+const resolveDate ={
+  en: 'Original release date =',
+  nl: 'Oorspronkelijke releasedatum =',
+  fr: 'Date de sortie originelle=',
 }
 
 const Game = ({ data, level }) => {
@@ -107,8 +119,8 @@ const Game = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
-          <div  className={styles.date}  >
-        Original release date = {date}
+          <div  className={styles.date}>
+        {resolveDate[locale]}{date}
           </div>
           <div className={styles.imagegallery}>
             <InPageSlideshow pictures={pictures}></InPageSlideshow>
@@ -133,7 +145,7 @@ const Game = ({ data, level }) => {
                 {platforms && platforms.length > 0 && <BigCardList items={platforms} title={resolvePlatform[locale]} type='platform'></BigCardList>}
                   </div>
           <div className={styles.publisher}>
-          {publisher && publisher.length > 0 && <BigCardList items={publisher} title={resolvePlatform[locale]} type='Company'></BigCardList>}
+          {publisher && publisher.length > 0 && <BigCardList items={publisher} title={resolvePublisher[locale]} type='Company'></BigCardList>}
                   </div>
                   {reviews && reviews.length > 0 && <SmallCardList items={reviews}  title = 'Reviews' type="review"></SmallCardList>} 
         <div className={styles.game}>
