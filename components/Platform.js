@@ -46,7 +46,7 @@ const Platform = ({ data, level }) => {
     locale = data.story.lang;
     var content = data.story.content;
     var company = data.rels.filter(obj => {
-      return content.company.includes(obj.uuid);
+      return content.companies.includes(obj.uuid);
     });
     // var directors = data.rels.filter(obj => {
     //   return content.directors.includes(obj.uuid);

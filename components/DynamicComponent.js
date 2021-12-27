@@ -34,6 +34,7 @@ import Platform from './Platform'
 import Role from './Role'
 import Gender from './Gender'
 import Company from './Company'
+import PlatformList from './PlatformList'
 
 const Components = {
   'teaser': Teaser,
@@ -72,6 +73,7 @@ const Components = {
   'role':Role,
   'gender': Gender,
   'Company':Company,
+  'platformlist': PlatformList
 }
 
 

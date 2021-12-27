@@ -30,6 +30,10 @@ const Navigation = ({ locale, locales }) => {
     en: 'Characters',
     nl: 'Person',
   }
+  const resolvePlatform = {
+    en: 'Platform',
+    nl: 'Platform',
+  }
   let homeurl = "/";
   if (locale != 'default') {
     homeurl = "/" + locale;
@@ -56,13 +60,16 @@ const Navigation = ({ locale, locales }) => {
               <a href={`${defaultLocale}pages/movies`} className={styles.movie}>{resolveMovies[locale]}</a>
             </div>
             <div className={styles.navlink}>
-              <a href={`${defaultLocale}pages/genre_game`} className={styles.genre_game}>{resolveGenre[locale]}</a>
+              <a href={`${defaultLocale}pages/genre_game`} className={styles.genre}>{resolveGenre[locale]}</a>
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/games`} className={styles.game}>{resolveGames[locale]}</a>
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/characters`} className={styles.character}>{resolveCharacters[locale]}</a>
+            </div>
+            <div className={styles.navlink}>
+              <a href={`${defaultLocale}pages/platforms`} className={styles.platform}>{resolvePlatform[locale]}</a>
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/people`} className={styles.personality}>{resolvePeople[locale]}</a>

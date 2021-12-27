@@ -1,13 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Company.module.scss"
+import { getData } from "../utils/storyblok"
+import BigCardList from "./BigCardList"
 
 const Company= ({ data }) => {
+  var locale = 'en';
   var content = data.story.content;
   var countries = data.rels.filter(obj => {
     return content.country.includes(obj.uuid);
   });
+
+  const [platforms_good, setPlatforms] = useState([]);
+  getData(data.story.uuid, locale, content.preview = false, 'platform', 'companies').then(
+    function (result) {
+      setPlatforms(result.data.stories);
+    });
   return (
     <SbEditable content={content} key={content._uid}>
       <main>
@@ -28,7 +37,11 @@ const Company= ({ data }) => {
               <div className={styles.country}>
                 <img src={item.content.flag.filename}></img>
               </div>
-            ))}</div>
+            
+              
+            ))}
+
+  {platforms_good && platforms_good.length > 0 && <BigCardList items={platforms_good}  title = 'Platforms' type="platform"></BigCardList>}  </div>
           
       </main>
     </SbEditable>

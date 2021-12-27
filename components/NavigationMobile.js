@@ -31,6 +31,10 @@ const NavigationMobile = ({ locale, locales }) => {
     en: 'Characters',
     nl: 'Person',
   }
+  const resolvePlatform = {
+    en: 'Platform',
+    nl: 'Platform',
+  }
   function togglenav() {
     setNavstate(result.data.stories);
   }
@@ -66,6 +70,9 @@ const NavigationMobile = ({ locale, locales }) => {
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/characters`} className={styles.character}>{resolveCharacters[locale]}</a>
+            </div>
+            <div className={styles.navlink}>
+              <a href={`${defaultLocale}pages/platforms`} className={styles.platform}>{resolvePlatform[locale]}</a>
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/people`} className={styles.personality}>{resolvePeople[locale]}</a>
