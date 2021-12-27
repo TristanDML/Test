@@ -87,7 +87,11 @@ const Character = ({ data, level }) => {
   //   function (result) {
   //     setNewsitems(result.data.stories);
   //   });
-
+  const [games_good, setGames] = useState([]);
+  getData(data.story.uuid, locale, content.preview = false, 'game', 'character').then(
+    function (result) {
+      setGames(result.data.stories);
+    });
 
   //returning the HTML
   return (
@@ -131,7 +135,8 @@ const Character = ({ data, level }) => {
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}
-        </div></div>
+        </div>
+        {games_good && games_good.length > 0 && <SmallCardList items={games_good} title='Games'type="game"></SmallCardList>}</div>
       </main>
     </SbEditable>
   )

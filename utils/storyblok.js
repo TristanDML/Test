@@ -51,6 +51,9 @@ export async function getData(uuid, locale, preview, components, itemtype, sortb
       case "personalities":
         sbParams.filter_query.personalities = { any_in_array: uuid };
         break;
+      case "character":
+        sbParams.filter_query.character = { any_in_array: uuid };
+        break;
     }
   }
 
