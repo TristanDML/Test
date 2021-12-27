@@ -8,6 +8,7 @@ import RelatedItemGallery from "./RelatedItemGallery"
 import InPageSlideshow from "./InPageSlideshow"
 import SmallCardList from "./SmallCardList"
 import { resolveHref } from "next/dist/next-server/lib/router/router"
+import BigCardList from "./BigCardList"
 
 // const resolveDirectors = {
 //   en: 'Directors',
@@ -33,6 +34,10 @@ import { resolveHref } from "next/dist/next-server/lib/router/router"
 //   en: 'News',
 //   nl: 'Nieuws',
 // }
+const resolveCompanies = {
+  en : 'Company',
+  nl: 'Bedrijf',
+}
 
 const Platform = ({ data, level }) => {
   var locale = 'en';
@@ -40,6 +45,9 @@ const Platform = ({ data, level }) => {
   if (level === 'data') {
     locale = data.story.lang;
     var content = data.story.content;
+    var company = data.rels.filter(obj => {
+      return content.company.includes(obj.uuid);
+    });
     // var directors = data.rels.filter(obj => {
     //   return content.directors.includes(obj.uuid);
     // });
@@ -94,6 +102,9 @@ const Platform = ({ data, level }) => {
         {/* <div className={styles.game}>
         {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
         </div> */}
+        <div className={styles.company}>
+                {company && company.length > 0 && <BigCardList items={company} title={resolveCompanies[locale]} type='company'></BigCardList>}
+                  </div>
         </div>
       </main>
     </SbEditable>
