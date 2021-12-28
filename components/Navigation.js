@@ -1,6 +1,5 @@
 import styles from "../styles/Navigation.module.scss"
 import Image from "next/image"
-
 const Navigation = ({ locale, locales }) => {
   const resolveMovies = {
     en: 'Movies',
@@ -99,6 +98,7 @@ const Navigation = ({ locale, locales }) => {
               locales.map(loc => {
                 return (<div className={styles.navlocale} key={loc}>
                   <a href={`/${loc}`} className={`${locale === loc ? "selected" : ""}`}>{loc}</a>
+                  {/* <Image src="/logo-colored-full.png" alt={loc} width="128" height="25" /> */}
                 </div>)
               })
             }

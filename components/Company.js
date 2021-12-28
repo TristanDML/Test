@@ -4,9 +4,14 @@ import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Company.module.scss"
 import { getData } from "../utils/storyblok"
 import BigCardList from "./BigCardList"
-
+const resolvePlatform ={
+  en: 'Platforms',
+  nl: 'Platforms',
+  fr: 'Plateformes',
+}
 const Company= ({ data }) => {
-  var locale = 'en';
+  var locale = data.story.lang;
+  
   var content = data.story.content;
   var countries = data.rels.filter(obj => {
     return content.country.includes(obj.uuid);
@@ -41,7 +46,7 @@ const Company= ({ data }) => {
               
             ))}
 
-  {platforms_good && platforms_good.length > 0 && <BigCardList items={platforms_good}  title = 'Platforms' type="platform"></BigCardList>}  </div>
+  {platforms_good && platforms_good.length > 0 && <BigCardList items={platforms_good}  title={resolvePlatform[locale]} type="platform"></BigCardList>}  </div>
           
       </main>
     </SbEditable>
