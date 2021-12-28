@@ -123,18 +123,17 @@ const Game = ({ data, level }) => {
         {resolveDate[locale]}{date}
           </div>
           <div className={styles.imagegallery}>
+    
             <InPageSlideshow pictures={pictures}></InPageSlideshow>
           </div>  
           <div className={styles.Summary}>
             {render(content.Summary)}
           </div>
+           <a {...content.url}>VISIT</a>
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}
-           <div className={styles.navlink}>
-              <a href={"styles.links"} >LINK</a>
-            </div> 
-          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
+          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}> {characters && characters.length > 0 && <RelatedItemGallerySmall items={characters} title={resolveCharacters[locale]} type='character'></RelatedItemGallerySmall>}
           </div>
           {/* <div className={styles.immagegalery}>
           <div className={styles.picture} style={{ backgroundImage: `url("${content.pictures.filename}")` }}>
@@ -148,9 +147,7 @@ const Game = ({ data, level }) => {
           {publisher && publisher.length > 0 && <BigCardList items={publisher} title={resolvePublisher[locale]} type='Company'></BigCardList>}
                   </div>
                   {reviews && reviews.length > 0 && <SmallCardList items={reviews}  title = 'Reviews' type="review"></SmallCardList>} 
-        <div className={styles.game}>
-        {characters && characters.length > 0 && <SmallCardList items={characters} title={resolveCharacters[locale]} type='character'></SmallCardList>}
-        </div>
+        
 
        
       </main>
