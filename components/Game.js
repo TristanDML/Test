@@ -9,7 +9,6 @@ import InPageSlideshow from "./InPageSlideshow"
 import SmallCardList from "./SmallCardList"
 import { resolveHref } from "next/dist/next-server/lib/router/router"
 import BigCardList from "./BigCardList"
-
 // const resolveDirectors = {
 //   en: 'Directors',
 //   nl: 'Regisseurs',
@@ -54,6 +53,11 @@ const resolveDate ={
   nl: 'Oorspronkelijke releasedatum =',
   fr: 'Date de sortie originelle=',
 }
+const ResolveLink ={
+  en: 'Amazon purchase link',
+  nl: 'Amazon aankooplink',
+  fr: "Lien d'achat Amazon",
+}
 
 const Game = ({ data, level }) => {
   var locale = 'en';
@@ -93,6 +97,8 @@ const Game = ({ data, level }) => {
   }
   var pictures = content.pictures;
   var date = content.releasedate;
+  var trailer = content.trailer;
+  
   // const [products, setProducts] = useState([]);
   // getData(data.story.uuid, locale, content.preview = false, 'product', 'game').then(
   //   function (result) {
@@ -121,6 +127,8 @@ const Game = ({ data, level }) => {
           </h1>
           <div  className={styles.date}>
         {resolveDate[locale]}{date}
+        <div className={styles.link}>
+        <a href={content.link}>{ResolveLink[locale]}</a></div>
           </div>
           <div className={styles.imagegallery}>
     
@@ -129,17 +137,23 @@ const Game = ({ data, level }) => {
           <div className={styles.Summary}>
             {render(content.Summary)}
           </div>
-           <a {...content.url}>VISIT</a>
+
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}
           <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}> {characters && characters.length > 0 && <RelatedItemGallerySmall items={characters} title={resolveCharacters[locale]} type='character'></RelatedItemGallerySmall>}
           </div>
-          {/* <div className={styles.immagegalery}>
+          {/* <div className={styles.videowrapper}> <iframe src={content.trailer.filename} frameborder="300" allowFullScreen></iframe>
+          </div> */}
+          <div className={styles.trailer}>
+          <iframe width="560" height="315" src={content.trailerlink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>link</iframe>
+          {/* <video width="320" height="240" controls="controls" mute="mute" preload="auto"> <source scr={"http://techslides.com/demos/sample-videos/small.mp4"} type="video/mp4"></source></video>
+          {/* <div className={styles.immagegalery}> */}</div>
           <div className={styles.picture} style={{ backgroundImage: `url("${content.pictures.filename}")` }}>
           </div>
-        </div> */}
-         </div>
+        </div>
+        
+       
         <div className={styles.platforms}>
                 {platforms && platforms.length > 0 && <BigCardList items={platforms} title={resolvePlatform[locale]} type='platform'></BigCardList>}
                   </div>
@@ -149,7 +163,7 @@ const Game = ({ data, level }) => {
                   {reviews && reviews.length > 0 && <SmallCardList items={reviews}  title = 'Reviews' type="review"></SmallCardList>} 
         
 
-       
+                  
       </main>
     </SbEditable>
   )
