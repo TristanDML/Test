@@ -48,7 +48,11 @@ const resolveGames = {
   nl: 'Spellen',
   fr: 'Jeux',
 }
-
+const resolveAge = {
+  en: 'Age of the character:',
+  nl: 'Leeftijd van het personage:',
+  fr: 'Âge du personnage:',
+}
 const Character = ({ data, level }) => {
   var locale = 'en';
   //enriching data
@@ -137,7 +141,7 @@ const Character = ({ data, level }) => {
           </div>
           
           <div className={styles.age}>  
-          Age of the character: {render(content.age)} 
+          {resolveAge[locale]} {render(content.age)} 
           </div>
           <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
           </div>
