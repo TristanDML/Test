@@ -146,7 +146,7 @@ const Game = ({ data, level }) => {
           {/* <div className={styles.videowrapper}> <iframe src={content.trailer.filename} frameborder="300" allowFullScreen></iframe>
           </div> */}
           <div className={styles.trailer}>
-          <iframe width="560" height="315" src={content.trailerlink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>link</iframe>
+          <iframe width="560" height="315" src={content.trailerlink} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>link</iframe>
           {/* <video width="320" height="240" controls="controls" mute="mute" preload="auto"> <source scr={"http://techslides.com/demos/sample-videos/small.mp4"} type="video/mp4"></source></video>
           {/* <div className={styles.immagegalery}> */}</div>
           <div className={styles.picture} style={{ backgroundImage: `url("${content.pictures.filename}")` }}>
