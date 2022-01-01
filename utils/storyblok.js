@@ -39,6 +39,9 @@ export async function getData(uuid, locale, preview, components, itemtype, sortb
       case "movies":
         sbParams.filter_query.movies = { any_in_array: uuid };
         break;
+      case "publisher":
+      sbParams.filter_query.publisher = { any_in_array: uuid };
+      break;
         case "platform":
         sbParams.filter_query.platform = { any_in_array: uuid };
         break;
