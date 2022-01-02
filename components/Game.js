@@ -68,6 +68,10 @@ const Game = ({ data, level }) => {
     var platforms = data.rels.filter(obj => {
       return content.platform.includes(obj.uuid);
     });
+    if (content.minimumage){
+    var minimumage = data.rels.filter(obj => {
+      return content.minimumage.includes(obj.uuid);
+    })};
     if (content.publisher){
       var publisher = data.rels.filter(obj => {
       return content.publisher.includes(obj.uuid);
@@ -141,7 +145,9 @@ const Game = ({ data, level }) => {
           {/* <div className={styles.links}>
               <a href={""}>VISIT</a>
             </div> */}
-          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}> {characters && characters.length > 0 && <RelatedItemGallerySmall items={characters} title={resolveCharacters[locale]} type='character'></RelatedItemGallerySmall>}
+          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}> {characters && characters.length > 0 && <RelatedItemGallerySmall items={characters} title={resolveCharacters[locale]} type='character'></RelatedItemGallerySmall>}<div className={styles.minimumage}>
+                  {minimumage && minimumage.length > 0 && <BigCardList items={minimumage} type='minimumage'></BigCardList>}
+                  </div>
           </div>
           {/* <div className={styles.videowrapper}> <iframe src={content.trailer.filename} frameborder="300" allowFullScreen></iframe>
           </div> */}
@@ -157,12 +163,13 @@ const Game = ({ data, level }) => {
         <div className={styles.platforms}>
                 {platforms && platforms.length > 0 && <BigCardList items={platforms} title={resolvePlatform[locale]} type='platform'></BigCardList>}
                   </div>
+                  
           <div className={styles.publisher}>
           {publisher && publisher.length > 0 && <BigCardList items={publisher} title={resolvePublisher[locale]} type='Company'></BigCardList>}
                   </div>
+                  
                   {reviews && reviews.length > 0 && <SmallCardList items={reviews}  title = 'Reviews' type="review"></SmallCardList>} 
-        
-
+                  
                   
       </main>
     </SbEditable>

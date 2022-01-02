@@ -37,6 +37,7 @@ import Company from './Company'
 import PlatformList from './PlatformList'
 import CompanyList from './CompanyList'
 import Review from './Review'
+import minimumage from './minimumage'
 
 const Components = {
   'teaser': Teaser,
@@ -78,6 +79,7 @@ const Components = {
   'platformlist': PlatformList,
   'companylist':CompanyList,
   'review': Review,
+  'minimumage':minimumage,
 }
 
 

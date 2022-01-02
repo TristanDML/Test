@@ -31,7 +31,8 @@ const BigCardList = ({ items, title, type }) => {
         const lang = item.lang === "default" ? "/en" : `/${item.lang}`;
         return (
           <div className={styles.smallcardwrapper}>
-            {type != "product" && <BigCard lang={lang} title={item.content.title} picture={item.content.logo.filename} url={item.full_slug} type={type} />}
+            {type == "minimumage" && <BigCard lang={lang} picture={item.content.logo.filename} url={item.full_slug} type={type} />}
+            {type != "product" && type != "minimumage"&& <BigCard lang={lang} title={item.content.title} picture={item.content.logo.filename} url={item.full_slug} type={type} />}
           </div>
         );
       })}
