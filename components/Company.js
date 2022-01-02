@@ -40,22 +40,20 @@ const Company= ({ data }) => {
         <div className={styles.studio}>
           <h1 className={styles.title}>
             {content.title}
-          </h1>
-          </div>
-        <div className={styles.logo}>
+          </h1><div className={styles.logo}>
           <img src={content.logo.filename} />
-        </div>
-        <div className={styles.description}>
-          {render(content.description)}
-        </div>
-        <div className={styles.country}>
+          </div>
             {countries.map((item, index) => (
               <div className={styles.country}>
                 <img src={item.content.flag.filename}></img>
               </div>
-            
-              
             ))}
+          
+        
+        <div className={styles.description}>
+          {render(content.description)}
+        </div>
+
 
   {platforms_good && platforms_good.length > 0 && <BigCardList items={platforms_good}  title={resolvePlatform[locale]} type="platform"></BigCardList>} 
   {games_good && games_good.length > 0 && <SmallCardList items={games_good}  title={resolveGames[locale]} type="game"></SmallCardList>} </div>
