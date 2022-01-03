@@ -38,6 +38,7 @@ import PlatformList from './PlatformList'
 import CompanyList from './CompanyList'
 import Review from './Review'
 import minimumage from './minimumage'
+import ReviewOptin from './ReviewOptin'
 
 const Components = {
   'teaser': Teaser,
@@ -80,6 +81,7 @@ const Components = {
   'companylist':CompanyList,
   'review': Review,
   'minimumage':minimumage,
+  "reviewoptin":ReviewOptin,
 }
 
 
