@@ -12,14 +12,8 @@ const PlatformList = ({ data, level, locale }) => {
     var content = data;
   }
   const [sortby, setSortby] = useState();
+  
 
-  function updateSortby(sortby){
-    setSortby(sortby);
-    getAllItems('platform', locale, sortby).then(
-      function (result) {
-        setItems(result.data.stories);
-      });
-  }
   const [items, setItems] = useState([]);
   getAllItems('platform', locale, sortby).then(
     function (result) {
@@ -28,10 +22,7 @@ const PlatformList = ({ data, level, locale }) => {
 
   return (
     <div className={styles.list}>
-      <div className={styles.orderbypicker}>
-        
-      </div>
-      <div>
+      <div> 
         {items && items.length > 0 && <SmallCardList items={items} type="platform"></SmallCardList>}
       </div>
     </div>
