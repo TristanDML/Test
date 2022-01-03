@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/BigCardList.module.scss"
 import BigCard from "./BigCard"
-
+import BiggestCard from "./BiggestCard"
 
 
 const BigCardList = ({ items, title, type }) => {
@@ -31,7 +31,7 @@ const BigCardList = ({ items, title, type }) => {
         const lang = item.lang === "default" ? "/en" : `/${item.lang}`;
         return (
           <div className={styles.smallcardwrapper}>
-            {type == "minimumage" && <BigCard lang={lang} picture={item.content.logo.filename} url={item.full_slug} type={type} />}
+            {type == "minimumage" && <BiggestCard lang={lang} picture={item.content.logo.filename } url={"https://pegi.info/"} />}
             {type != "product" && type != "minimumage"&& <BigCard lang={lang} title={item.content.title} picture={item.content.logo.filename} url={item.full_slug} type={type} />}
           </div>
         );

@@ -1,11 +1,8 @@
 import styles from "../styles/Footer.module.scss"
-const ResolveFooter={
-  en: 'Amazon purchase link',
-  nl: 'Amazon aankooplink',
-  fr: "Lien d'achat Amazon",
-}
 
-const Footer = () => {
+
+const Footer = (locale,locales) => {
+  
   return (
     <footer className={styles.footerwrapper}>
       <div className={styles.footer}>
