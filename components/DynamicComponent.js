@@ -40,6 +40,11 @@ import Review from './Review'
 import minimumage from './minimumage'
 import ReviewOptin from './ReviewOptin'
 import ReviewList from './ReviewList'
+import Cours from './Cours'
+import CoursList from './CoursList'
+import Chapitre from './Chapitre'
+import Picture from './Picture'
+import Article from './Article'
 
 const Components = {
   'teaser': Teaser,
@@ -83,7 +88,12 @@ const Components = {
   'review': Review,
   'minimumage':minimumage,
   "reviewoptin":ReviewOptin,
-  "reviewlist": ReviewList
+  "reviewlist": ReviewList,
+  "cours": Cours,
+  "courslist": CoursList,
+  "chapitre": Chapitre,
+  "picture": Picture,
+  "article": Article,
 }
 
 

@@ -1,0 +1,34 @@
+@import '../styles/colors';
+
+
+  .country{
+    margin-right: 10px;
+  
+}
+  .title {}
+  .logo {width:100px;}
+  .country{
+    margin-right: 10px;
+    width:50px;
+  }
+  .description {}
+  .mainpicture {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0px 10px #000;
+    margin-bottom: 40px;
+    margin-left: 80px;
+  }
+  .cours {
+    width: 0%;
+    height: 295px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0px 10px #000;
+    margin-bottom: 40px;
+    margin-left: 80px;
+    margin-top:0px;
+    padding:0px;
+  }

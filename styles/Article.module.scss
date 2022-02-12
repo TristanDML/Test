@@ -1,0 +1,44 @@
+@import '../styles/colors';
+
+
+  .country{
+    margin-right: 10px;
+  
+}
+  .title {font-family: 'Apple Chancery', cursive;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    font-weight: 10000;
+    color: red;
+    }
+  .logo {width:100px;}
+  .country{
+    margin-right: 10px;
+    width:50px;
+  }
+  .description {font-family: 'Apple Chancery', cursive;
+    font-size: 0.9em;
+    line-height: 1.05em;
+    color: rgb(6, 6, 48);
+    font-weight: 500;
+    margin-top:2px;
+    }
+  .mainpicture {
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    background-position: right;
+    margin-top:0px;
+    padding:0px;
+  }
+  .cours {
+    width: 0%;
+    height: 295px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0px 10px #000;
+    margin-bottom: 40px;
+    margin-left: 80px;
+    margin-top:0px;
+    padding:0px;
+  }

@@ -39,9 +39,9 @@ const Navigation = ({ locale, locales }) => {
     fr: 'Plateformes',
   }
   const resolveCompany = {
-    en: 'Companies',
-    nl: 'Bedrijven',
-    fr: 'Entreprises',
+    en: 'Cours',
+    nl: 'Cours',
+    fr: 'Cours',
   }
   let homeurl = "/";
   if (locale != 'default') {
@@ -68,7 +68,7 @@ const Navigation = ({ locale, locales }) => {
             {/* <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/movies`} className={styles.movie}>{resolveMovies[locale]}</a>
             </div> */}
-            <div className={styles.navlink}>
+            {/* <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/genre_game`} className={styles.genre}>{resolveGenre[locale]}</a>
             </div>
             <div className={styles.navlink}>
@@ -79,7 +79,7 @@ const Navigation = ({ locale, locales }) => {
             </div>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/platforms`} className={styles.platform}>{resolvePlatform[locale]}</a>
-            </div>
+            </div> */}
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/companies`} className={styles.company}>{resolveCompany[locale]}</a>
             </div>
